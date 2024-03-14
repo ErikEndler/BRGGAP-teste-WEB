@@ -1,0 +1,8 @@
+# Ignore npm files/folders
+node_modules
+npm-debug.log
+package-lock.json
+
+# Ignore Visual Studio Code project and settings files
+.vscode/
+.idea/

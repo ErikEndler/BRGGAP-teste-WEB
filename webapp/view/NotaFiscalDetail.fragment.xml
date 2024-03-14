@@ -1,0 +1,56 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:l="sap.ui.layout"
+   xmlns:form="sap.ui.layout.form"
+   xmlns:core="sap.ui.core">
+   <Dialog
+      id="notaFiscalDetail"
+      title="Detalhes N° {notaFiscalModel>/numero}">
+      <form:SimpleForm
+         width="auto"
+         class="sapUiResponsiveMargin"
+         layout="ResponsiveGridLayout"
+         labelSpanL="3"
+         labelSpanM="3"
+         emptySpanL="4"
+         emptySpanM="4"
+         columnsL="1"
+         columnsM="1"
+      >
+         <form:content>
+            <Label text="Numero" />
+            <Text text="{notaFiscalModel>/numero}" />
+
+            <Label text="Valor" />
+            <Text
+               text="{parts: ['notaFiscalModel>/numero', 'view>/currency'], type:'sap.ui.model.type.Currency'}"
+            />
+
+            <Label text="Cliente" />
+            <Text text="{notaFiscalModel>/cliente/nome}" />
+
+            <Label text="Fornecedor" />
+            <Text text="{notaFiscalModel>/fornecedor/nome}" />
+
+
+         </form:content>
+      </form:SimpleForm>
+      <!-- <l:VerticalLayout>
+         <Label for="numero" text="N° Nota Fiscal" />
+         <Input id="numero" enabled="false" value="{notaFiscalModel>/numero}" />
+         <Label for="valor" text="Valor" />
+         <Input
+            value="{parts: ['notaFiscalModel>/numero', 'view>/currency'], type:'sap.ui.model.type.Currency'}" />
+         <Label for="cliente" text="Cliente" />
+         <Input id="cliente" enabled="false" value="{notaFiscalModel>/cliente/nome}" />
+         <Label for="fornecedor" text="Cliente" />
+         <Input id="fornecedor" enabled="false" value="{notaFiscalModel>/fornecedor/nome}" />
+      </l:VerticalLayout> -->
+
+      <beginButton>
+         <Button
+            text="{i18n>dialogCloseButtonText}"
+            press=".onCloseDialog" />
+      </beginButton>
+   </Dialog>
+</core:FragmentDefinition>

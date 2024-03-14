@@ -1,0 +1,44 @@
+<mvc:View
+    controllerName="ui5.walkthrough.controller.NotaFiscal"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">    
+    <List
+        id="notaFiscalList"
+        headerText="Notas Fiscais"
+        class="sapUiResponsiveMargin"
+        width="auto"
+        items="{notaFiscalModel>/}"
+        selectionChange="onSelection">
+        <headerToolbar>
+            <Toolbar>
+                <Title text="{i18n>notaFiscalListTitle}" />
+                <ToolbarSpacer />
+                <SearchField
+                    width="50%"
+                    search=".onFilterNotaFiscal" />
+            </Toolbar>
+        </headerToolbar>
+        <CustomListItem>
+            <HBox>
+                <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+                    <Link text="N° {notaFiscalModel>numero}" target="{ProductPicUrl}"
+                        press= "onOpenFragment($event, ${notaFiscalModel>})"
+                         />
+                    <Label
+                        text="{
+                        parts: [
+                            'notaFiscalModel>valor',
+                            'view>/currency'    
+                        ],
+                        type: 'sap.ui.model.type.Currency',
+                        formatOptions: {
+                            showMeasure: true
+                        }
+                    }" />
+
+                    <Label text="{ProductId}" />
+                </VBox>
+            </HBox>
+        </CustomListItem>        
+    </List>
+</mvc:View>
